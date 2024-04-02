@@ -17,9 +17,13 @@ import {
   TOKEN_PROGRAM_ID,
   Percent,
   SPL_ACCOUNT_LAYOUT,
+  LIQUIDITY_STATE_LAYOUT_V4,
+  LiquidityStateV4,
 } from "@raydium-io/raydium-sdk";
 import { Wallet } from "@coral-xyz/anchor";
 import bs58 from "bs58";
+import { createPoolKeys } from "./liquidity";
+import { getMinimalMarketV3 } from "./market";
 
 /**
  * Class representing a Raydium Swap operation.
@@ -59,6 +63,15 @@ class RaydiumSwap {
     ];
 
     this.allPoolKeysJson = allPoolKeysJson;
+  }
+
+  async getPoolKeys(poolId: string) {
+    const poolPubkey = new PublicKey(poolId)
+    const info = await this.connection.getAccountInfo(poolPubkey)
+    const accountData = LIQUIDITY_STATE_LAYOUT_V4.decode(info?.data)
+    const market = await getMinimalMarketV3(this.connection, accountData.marketId);
+    const poolKeys = createPoolKeys(poolPubkey, accountData, market!);
+    return poolKeys
   }
 
   /**

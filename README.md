@@ -1,101 +1,177 @@
-<img width="1200" alt="Labs" src="https://user-images.githubusercontent.com/99700157/213291931-5a822628-5b8a-4768-980d-65f324985d32.png">
+# Solana Trading Bot
 
-<p>
- <h3 align="center">Chainstack is the leading suite of services connecting developers with Web3 infrastructure</h3>
-</p>
+This is node.js bot with solana trading strategy.
 
-<p align="center">
-  <a target="_blank" href="https://chainstack.com/build-better-with-ethereum/"><img src="https://github.com/soos3d/blockchain-badges/blob/main/protocols_badges/Ethereum.svg" /></a>&nbsp;  
-  <a target="_blank" href="https://chainstack.com/build-better-with-bnb-smart-chain/"><img src="https://github.com/soos3d/blockchain-badges/blob/main/protocols_badges/BNB.svg" /></a>&nbsp;
-  <a target="_blank" href="https://chainstack.com/build-better-with-polygon/"><img src="https://github.com/soos3d/blockchain-badges/blob/main/protocols_badges/Polygon.svg" /></a>&nbsp;
-  <a target="_blank" href="https://chainstack.com/build-better-with-avalanche/"><img src="https://github.com/soos3d/blockchain-badges/blob/main/protocols_badges/Avalanche.svg" /></a>&nbsp;
-  <a target="_blank" href="https://chainstack.com/build-better-with-solana/"><img src="https://github.com/soos3d/blockchain-badges/blob/main/protocols_badges/Solana.svg" /></a>&nbsp;
-</p>
+## Strategy
 
-<p align="center">
-  <a target="_blank" href="https://chainstack.com/protocols/">Supported protocols</a> •
-  <a target="_blank" href="https://chainstack.com/blog/">Chainstack blog</a> •
-  <a target="_blank" href="https://docs.chainstack.com/quickstart/">Chainstack docs</a> •
-  <a target="_blank" href="https://docs.chainstack.com/quickstart/">Blockchain API reference</a> •
-  <a target="_blank" href="https://console.chainstack.com/user/account/create">Start for free</a>
-</p>
+This strategy is like:
+This process should be fast and reliable, if there is a failure somewhere, the bot should throw an error and stop running.
 
-# Raydium SDK Swap Example
+A trading script in the Solana or eth blockchain designed to monitor every new line added to a text file. It utilizes each line as the contract address of a token intended for swapping with my Solana/Eth coins in my “Phantom” wallet .The swap used is "Jupiter". The transaction is subject to the following conditions:
 
-This project demonstrates how to perform a token swap on the Solana blockchain using Raydium and Chainstack. The example specifically illustrates swapping SOL (native Solana token) for USDC (a stablecoin).
+0-The amount to trade per token or contract address is 3 Solanas/1 eth (One only trade per token)
 
-Find the full [guide on the Chainstack Developer Portal](https://docs.chainstack.com/docs/solana-how-to-perform-token-swaps-using-the-raydium-sdk).
+1-After buying the token, the duration of the trade lasts until the price of the purchased token reaches at least 2.2 times of the original price or wait for a certain market Ex. sell_marketcap = 40000000000
+Once that happens you swap the token back to Solana/Eth. Buf if the price condition wasn't satisfied {within the X-seconds window of opening the trade you just proceed with swapping back to solana/Eth regardless even with loss.}
 
-> Shoutout to [precious-void](https://github.com/precious-void) for the the [base code](https://github.com/precious-void/raydium-swap) used for this project!
+The trading window subject to change in the config file using Trade_window and the desired profit is subject to change too from the config file using profit_ratio
+If Trade_window is set, sell_marketcap will be ignored. (if Trade_window is NULL, the trigger would be sell_marketcap )
 
-## Features
+When the trade is open, the script keep analyzing the order book while the trade is open if something of the following detected, the trade should be terminated asap (all these here are variables, I can turn on the check or disable it individually in the config file) :
+Bot buys and sell, same address and the same amount and keep repeating
+lot of sell orders with the value of zero (if more than 10 percent after analyzing the first 30 trades in the order boot)
+Every buy is followed by a sell for the last 10 trades
+buy trades per second more than 10 trades per minutes (each trade should exceed 0.09 sol / eth) and its total is more than double than sell trades total in the same period this is to make sure marketcap is moving forward and there is no sideways trading (If you have a better indicator of growing marketcap add it optionally in the config)
+Honeypot, the selling don’t go through (That can be checking a random sell transactions using solscan.io/Etherscan to make sure the holders are able to sell )
+Every 10 second check of using BirdEye API for a probable rugpull
 
-- Utilizes the Raydium SDK for interacting with the Solana blockchain.
-- Supports both versioned and legacy transactions.
-- Allows simulation of swap transactions before execution.
-- Easy configuration for swap parameters through a dedicated config file.
+Also, bot end the trade if the
 
-## Prerequisites
+2-Once the transaction is completed, the profit should be recorded, including the times and the contract address of the token in a csv file that you will keep updating for each trade.
 
-Before you begin, ensure you have met the following requirements:
+3-The script should log the number of the last processed line in 'last_line.lock.' This ensures that in case the script is restarted, it can resume from where it left off.
 
-- Node.js installed (v18 or above recommended)
-- Yarn
-- A Solana wallet with some SOL for testing the swap
-- An environment file (.env) with your RPC URL and WALLET_PRIVATE_KEY
+4-if the last 2 trades are not profitable stop the bot but of course log the last processed line so when I start it again it continue when it was left off
+The number of max last lost trades are subject to change in the config file.
 
-## Chainstack Solana node
+5-everything that is done using the script should be logged in log.txt for debugging purposes
 
-Deploy a Solana node on Chainstack; the following steps will guide you:
+6- the bot support more than one simultaneous trades meaning you will swap and trade 5 different token at a time, the number of simultaneous trades can be set in simultaneous_trades
 
-1. [Sign up with Chainstack](https://console.chainstack.com/user/account/create).
-2. [Deploy a node](https://docs.chainstack.com/docs/manage-your-networks#join-a-public-network).
-3. [View node access and credentials](https://docs.chainstack.com/docs/manage-your-node#view-node-access-and-credentials).
+7-we may need to add an indicator or two to the parameters for example indicator_RSI = 1 for enabled, 0 for disabled or something else that can be appropriate for short trading in crypto, always we use one minute candlestick
 
-## Environment variables
+## How to use
 
-Add your RPC endoint and private key to a `.env` file:
+### Enviroment && Install packages
 
-```env
-RPC_URL=YOUR_RPC_URL
-WALLET_PRIVATE_KEY=YOUR_PRIVATE_KEY
+cd to your project root and run npm install. It will install all required node modules
+
+```
+    npm install
 ```
 
-## Installation
+### Configuration
 
-Clone the repository locally and install the dependencies:
+Can change the configuration variable.
 
-```bash
-git clone https://github.com/soos3d/raydium-sdk-swap-example.git
-cd raydium-sdk-swap-example
-yarn
+```
+    // This is template .env
+    ============== Main options ====================
+    //sol/eth size per token
+    TRADE_SIZE = 0.005 # sol
+    TEST_TRADE_SIZE = 0.00001 # test sol
+    TRADE_WINDOW = 40 # miuntes,  if it is set, MAX_MARKETCAP is ignored!
+    MAX_MARKETCAP = 50000000
+    52,039,655.82
+    2.2 ~ 3.6
+    PROFIT_RATIO = 1.1
+    simultaneous trades 1 ~ 5
+    SIMULTANEOUS_TRADES = 1 (1 ~ 5)
+    MAX_LAST_LOST_TRADES = 2
+    // sol or eth size to sell
+    SELL_PERCENTAGE = 20 # percentage(%)
+    SLIPPAGE = 12 # slippage (%)
+    // Chain: SOL or ETH
+    CHAIN = 'SOL'
+
+
+    // keep solana or ether
+    KEEP_SOME = 0.001 # sol
+    KEEP_SOME_MIN_SCORE = 15 # min token score
+    KEEP_SOME_LAST_SELL = 60000000
+
+    // WSOL address
+    WSOL_ADDRESS = So11111111111111111111111111111111111111112
+    WALLET_SECRET_KEY = 'input your wallet secret key'
+
 ```
 
-## Usage
+### input text file
 
-Edit the configuration in `src/swapConfig.ts` editing:
+This is template for input file for token
 
-- Select if you want to send the transaction or only simulate
-- The amount to swap
-- The tokens to swap
-- The liquidity file to pull the pool info from
-
-```ts
-export const swapConfig = {
-  executeSwap: false, // Send tx when true, simulate tx when false
-  useVersionedTransaction: true,
-  tokenAAmount: 0.01, // Swap 0.01 SOL for USDT in this example
-  tokenAAddress: "So11111111111111111111111111111111111111112", // Token to swap for the other, SOL in this case
-  tokenBAddress: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v", // USDC address
-  maxLamports: 1000000, // Max lamports allowed for fees
-  direction: "in" as "in" | "out", // Swap direction: 'in' or 'out'
-  liquidityFile: "https://api.raydium.io/v2/sdk/liquidity/mainnet.json",
-  maxRetries: 10
-};
+```
+    {
+        "name":"Duko",
+        "symbol":"DUKO",
+        "address": "HLptm5e6rTgh4EKgDpYFrnRHbjpkMyVdEeREEa2G7rf9",
+        "decimal": 9,
+        "price": 0.004,
+        "ATH_price": 0.007,
+        "score": 15,
+        "created_date": 1711582899
+    },
 ```
 
-Then run:
+### output csv file
 
-```sh
-yarn swap
+This is output csv template.
+
 ```
+    Token Address, Profit, Time
+    HLptm5e6rTgh4EKgDpYFrnRHbjpkMyVdEeREEa2G7rf9, 0.34352, Wed Mar 27 2024 18:56:24 GMT-0700 (Pacific Daylight Time)
+
+```
+
+### log text file
+
+All the trade result is logged.
+
+```
+    ⏰---log time: Fri Mar 29 2024 05:01:50 GMT-0700 (Pacific Daylight Time)---⏰
+    ✅ Loaded input tokens successfully!
+    ⏰---log time: Fri Mar 29 2024 05:01:50 GMT-0700 (Pacific Daylight Time)---⏰
+    Start to buy!
+    ⏰---log time: Fri Mar 29 2024 05:02:01 GMT-0700 (Pacific Daylight Time)---⏰
+    ✅ Loaded input tokens successfully!
+    ⏰---log time: Fri Mar 29 2024 05:02:01 GMT-0700 (Pacific Daylight Time)---⏰
+    Start to buy!
+    ⏰---log time: Fri Mar 29 2024 05:02:01 GMT-0700 (Pacific Daylight Time)---⏰
+    "😎 Current Market Status: \nDUKO: {\"price\":0.005036893881098129,\"cap\":48676320.79323261}"
+    ⏰---log time: Fri Mar 29 2024 05:02:01 GMT-0700 (Pacific Daylight Time)---⏰
+    ✅ Updated trade tokens successfully!
+    ⏰---log time: Fri Mar 29 2024 05:02:01 GMT-0700 (Pacific Daylight Time)---⏰
+    😎 Start trade!
+    ⏰---log time: Fri Mar 29 2024 05:02:01 GMT-0700 (Pacific Daylight Time)---⏰
+    ✅ Loaded trade tokens successfully!
+    ⏰---log time: Fri Mar 29 2024 05:02:01 GMT-0700 (Pacific Daylight Time)---⏰
+    "😎 Current Market Status: \nDUKO: {\"price\":0.005025979858910395,\"cap\":48570848.16313647}"
+    ⏰---log time: Fri Mar 29 2024 05:02:01 GMT-0700 (Pacific Daylight Time)---⏰
+    ✅ Updated trade tokens successfully!
+    ⏰---log time: Fri Mar 29 2024 05:02:01 GMT-0700 (Pacific Daylight Time)---⏰
+    "😎 Current Market Status: \nDUKO: {\"price\":0.005025979858910395,\"cap\":48570848.16313647}"
+    ⏰---log time: Fri Mar 29 2024 05:02:01 GMT-0700 (Pacific Daylight Time)---⏰
+    ✅ Updated trade tokens successfully!
+    ⏰---log time: Fri Mar 29 2024 05:02:01 GMT-0700 (Pacific Daylight Time)---⏰
+    "😎 Current Market Status: \nDUKO: {\"price\":0.005025328621816478,\"cap\":48564554.6365218}"
+    ⏰---log time: Fri Mar 29 2024 05:02:01 GMT-0700 (Pacific Daylight Time)---⏰
+    ✅ Updated trade tokens successfully!
+    ⏰---log time: Fri Mar 29 2024 05:02:01 GMT-0700 (Pacific Daylight Time)---⏰
+    "😎 Current Market Status: \nDUKO: {\"price\":0.005007285144803157,\"cap\":48390183.26875848}"
+
+    ................................................
+```
+
+### last_line.lock
+
+If detected the unprofitable token, bot is stopped and that token is saved in last_line.lock.
+
+saved type is like:
+
+```
+    [
+        {
+            address: HLptm5e6rTgh4EKgDpYFrnRHbjpkMyVdEeREEa2G7rf9, // token address
+            time: 171158432  // lost time
+        },
+        {
+            ...
+        }
+    ]
+```
+
+## Notice
+
+### The bot use coinmarketcap.com API for fetching current market trade including price and marketcap.
+
+### The main function, swap is executed using Jupiter DEX.

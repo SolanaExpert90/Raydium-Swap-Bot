@@ -8,9 +8,9 @@ import { swapConfig } from "./swapConfig"; // Import the configuration
  * Depending on the configuration, it can execute the swap or simulate it.
  */
 const swap = async () => {
-  /**
-   * The RaydiumSwap instance for handling swaps.
-   */
+  // /**
+  //  * The RaydiumSwap instance for handling swaps.
+  //  */
   const raydiumSwap = new RaydiumSwap(
     process.env.RPC_URL,
     process.env.WALLET_PRIVATE_KEY
@@ -20,20 +20,23 @@ const swap = async () => {
     `Swapping ${swapConfig.tokenAAmount} of ${swapConfig.tokenAAddress} for ${swapConfig.tokenBAddress}...`
   );
 
-  /**
-   * Load pool keys from the Raydium API to enable finding pool information.
-   */
-  await raydiumSwap.loadPoolKeys(swapConfig.liquidityFile);
-  console.log(`Loaded pool keys`);
+  // /**
+  //  * Load pool keys from the Raydium API to enable finding pool information.
+  //  */
+  // await raydiumSwap.loadPoolKeys(swapConfig.liquidityFile);
+  // console.log(`Loaded pool keys`);
 
-  /**
-   * Find pool information for the given token pair.
-   */
-  const poolInfo = raydiumSwap.findPoolInfoForTokens(
-    swapConfig.tokenAAddress,
-    swapConfig.tokenBAddress
-  );
-  console.log("Found pool info: ", poolInfo);
+  // /**
+  //  * Find pool information for the given token pair.
+  //  */
+  // const poolInfo = raydiumSwap.findPoolInfoForTokens(
+  //   swapConfig.tokenAAddress,
+  //   swapConfig.tokenBAddress
+  // );
+  // console.log("Found pool info: ", poolInfo);
+
+  const poolInfo = await raydiumSwap.getPoolKeys(swapConfig.poolAddress)
+  console.log(poolInfo)
 
   /**
    * Prepare the swap transaction with the given parameters.
@@ -56,13 +59,13 @@ const swap = async () => {
      */
     const txid = swapConfig.useVersionedTransaction
       ? await raydiumSwap.sendVersionedTransaction(
-          tx as VersionedTransaction,
-          swapConfig.maxRetries
-        )
+        tx as VersionedTransaction,
+        swapConfig.maxRetries
+      )
       : await raydiumSwap.sendLegacyTransaction(
-          tx as Transaction,
-          swapConfig.maxRetries
-        );
+        tx as Transaction,
+        swapConfig.maxRetries
+      );
 
     console.log(`https://solscan.io/tx/${txid}`);
   } else {
@@ -71,8 +74,8 @@ const swap = async () => {
      */
     const simRes = swapConfig.useVersionedTransaction
       ? await raydiumSwap.simulateVersionedTransaction(
-          tx as VersionedTransaction
-        )
+        tx as VersionedTransaction
+      )
       : await raydiumSwap.simulateLegacyTransaction(tx as Transaction);
 
     console.log(simRes);
