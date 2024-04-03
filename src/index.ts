@@ -1,6 +1,8 @@
 import RaydiumSwap from "./RaydiumSwap";
 import fs from "fs";
 import { Transaction, VersionedTransaction } from "@solana/web3.js";
+import csv from "csv-parser";
+import { createObjectCsvWriter } from "csv-writer";
 import "dotenv/config";
 import { swapConfig } from "./swapConfig"; // Import the configuration
 import { token } from "@coral-xyz/anchor/dist/cjs/utils";
@@ -46,13 +48,15 @@ const MSG = {
   startToBuy: "Start to buy!",
   waiting: "waiting...",
 };
-const DURATION_WINDOW = 40000; // 40s
-const rugCheckTolerance = 0.00000001;
+const DURATION_WINDOW = 1; // unit second
+const rugCheckTolerance = 0.00000001; // sol
 const CSV_HEADER = [
   { id: "address", title: "Token Address" },
   { id: "profit", title: "Profit" },
   { id: "time", title: "Time" },
 ];
+let timeoutId: any;
+let loopIndex: number = 0;
 // ========================== *element ========================
 const updateLog = (logTxt: string) => {
   let log = fs.readFileSync(logStorage, "utf8");
@@ -64,7 +68,7 @@ const loadInputToken = () => {
   updateLog(MSG.loadInputTokenSuccess);
   return JSON.parse(fs.readFileSync(inputTokenStorage, "utf8"));
 };
-const checkInputTokens = (tokens: Array<object>) => {
+const checkInputTokens = (tokens: Array<Object>) => {
   return tokens;
 };
 const loadTradeToken = () => {
@@ -73,7 +77,7 @@ const loadTradeToken = () => {
   const tokens = JSON.parse(fs.readFileSync(tradeStorage, "utf8"));
   return tokens;
 };
-const updateTradeToken = async (tokens: Array<object>) => {
+const updateTradeToken = async (tokens: Array<any>) => {
   fs.writeFileSync(tradeStorage, JSON.stringify(tokens), "utf8");
   updateLog(MSG.updateTradeTokenSuccess);
   console.log(MSG.updateTradeTokenSuccess);
@@ -170,6 +174,7 @@ const reachProfitablePrice = (
 ) => {
   return currentPrice >= profitablePrice;
 };
+
 const fetchCurrentMarket = async (tokenAddress: string) => {
   let market = Object();
   await fetch(
@@ -185,17 +190,37 @@ const fetchCurrentMarket = async (tokenAddress: string) => {
     nativeWsol: Number(market?.pairs[0].priceNative) || 0,
   };
 };
+
 const buy = async (tokens: Array<object>) => {};
+
 const testBuy = async (tokens: Array<object>) => {};
+
 const sell = async (token: Object, amount: number) => {};
+
 const monitorTokens = async (index: number) => {
   const tradeTokens = await loadTradeToken();
+  let updatedTokens: Array<Object>;
+
   if (index < Number(SIMULTANEOUS_TRADES)) {
     const tradeToken = tradeTokens[index];
+    let updateToken: Object;
     const currentMarket = await fetchCurrentMarket(tradeToken.address);
     if (currentMarket.cap >= Number(KEEP_SOME_LAST_SELL)) {
       await sell(tradeToken, tradeToken.currentAmount);
       // ...logic after selling all token
+      updateToken = {
+        ...tradeToken,
+        changed: tradeToken.changed + 1,
+        lostTime: 0,
+        sold: {
+          ...tradeToken.sold,
+          [`${currentMarket.cap / 1000}k`]: {
+            amount: tradeToken.currentAmount,
+            wsol: tradeToken.currentAmount * currentMarket.nativeWsol,
+          },
+        },
+        currentAmount: 0,
+      };
     } else {
       if (
         (reachMarketCap(currentMarket.cap, tradeToken.changed) ||
@@ -210,7 +235,7 @@ const monitorTokens = async (index: number) => {
           tradeToken.initialAmount * (Number(SELL_PERCENTAGE) / 100)
         );
         await sell(tradeToken, sellAmount);
-        const updateToken = {
+        updateToken = {
           ...tradeToken,
           changed: tradeToken.changed + 1,
           lostTime: 0,
@@ -225,14 +250,72 @@ const monitorTokens = async (index: number) => {
         };
       }
     }
+
+    updatedTokens = await tradeTokens.map((idx: number, el: Object) => {
+      return idx == index ? updateToken : el;
+    });
+
+    await updateTradeToken(updatedTokens);
+    timeoutId = setTimeout(
+      monitorTokens,
+      DURATION_WINDOW * 60 * 1000,
+      index + 1
+    );
   } else {
+    monitorTokens(0);
   }
+};
+
+const processOutputCSV = (filePath: any, callback: any, newData: any) => {
+  const result = [];
+  const csvF = fs
+    .createReadStream(filePath)
+    .pipe(csv())
+    .on("data", (data) => {
+      result.push({
+        [CSV_HEADER[0].id]: data[CSV_HEADER[0].title],
+        [CSV_HEADER[1].id]: data[CSV_HEADER[1].title],
+        [CSV_HEADER[2].id]: data[CSV_HEADER[2].title],
+      });
+    })
+    .on("end", () => {
+      callback(filePath, result, newData);
+    });
+};
+const updateOutput = async (filePath: string, data: any, newData: any) => {
+  const output = [...data, ...newData];
+  const csvWriter = createObjectCsvWriter({
+    path: filePath,
+    header: CSV_HEADER,
+  });
+  csvWriter.writeRecords(output).then(() => {
+    MSG.updateOutputSuccess;
+  });
+};
+
+const isOldToken = (token: any) => {
+  const currentTimeStamp = Date.now();
+  return (
+    currentTimeStamp - token.created_date >=
+    (Number(TRADE_WINDOW) * 60 * 1000) / 2
+  );
+};
+const sleepTrade = async (ms: number) => {
+  console.log(`Restart after ${ms / 1000} seconds...`);
+  return new Promise((resolve) => setTimeout(resolve, ms * 60 * 1000));
 };
 // ========================== *start ==========================
 const startTrade = async () => {
   setInterval(async () => {
     try {
-      monitorTokens(0);
+      if (loopIndex < 2) {
+        loopIndex++;
+        await checkTrade();
+        await monitorTokens(0);
+      } else {
+        loopIndex = 0;
+        await checkTrade();
+      }
     } catch (error) {
       console.log("Issued some problems!");
     }
@@ -243,15 +326,27 @@ const beforeTrade = async () => {
   const checkTokens = checkInputTokens(tokens);
   await buy(checkTokens);
 };
-const stopTrade = async () => {};
+const checkTrade = async () => {
+  const tradeTokens = await loadTradeToken();
+  const isLostTokens = tradeTokens.filter(
+    (el: any) => el.lostTime == Number(MAX_LAST_LOST_TRADES)
+  );
+  if (isLostTokens.length > 0) await stopTrade();
+  else return true;
+};
+const stopTrade = async () => {
+  // const tradeTokens = await loadTradeToken();
+  await sleepTrade(100);
+  bot();
+};
 // ============================================================
 const bot = async () => {
-  // await beforeTrade();
-  // await startTrade();
-  const result = await fetchCurrentMarket(
-    "7dr2iYb1Xq29H13RXW1wHhrAqbYF39SDXAU5nGFTpNmU"
-  );
-  console.log(result);
+  await beforeTrade();
+  await startTrade();
+  // const result = await fetchCurrentMarket(
+  //   "7dr2iYb1Xq29H13RXW1wHhrAqbYF39SDXAU5nGFTpNmU"
+  // );
+  // console.log(result);
 };
 
 bot();
