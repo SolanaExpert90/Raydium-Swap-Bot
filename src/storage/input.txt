@@ -3,10 +3,11 @@
         "name":"No dev",
         "symbol":"Nodev",
         "address": "HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX",
-        "decimal": 6W,
-        "price": 0.001642,
+        "decimal": 6,
+        "price": 0.0007363,
+        "priceNative": 0.000003916,
         "ATH_price": 0.007,
         "score": 15,
-        "created_date": 1712128806000
+        "created_date": 1712161638804
     }
 ]

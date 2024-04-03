@@ -61,17 +61,19 @@ class RaydiumSwap {
       ...(liquidityJson?.official ?? []),
       ...(liquidityJson?.unOfficial ?? []),
     ];
-
     this.allPoolKeysJson = allPoolKeysJson;
   }
 
   async getPoolKeys(poolId: string) {
-    const poolPubkey = new PublicKey(poolId)
-    const info = await this.connection.getAccountInfo(poolPubkey)
-    const accountData = LIQUIDITY_STATE_LAYOUT_V4.decode(info?.data)
-    const market = await getMinimalMarketV3(this.connection, accountData.marketId);
+    const poolPubkey = new PublicKey(poolId);
+    const info = await this.connection.getAccountInfo(poolPubkey);
+    const accountData = LIQUIDITY_STATE_LAYOUT_V4.decode(info?.data);
+    const market = await getMinimalMarketV3(
+      this.connection,
+      accountData.marketId
+    );
     const poolKeys = createPoolKeys(poolPubkey, accountData, market!);
-    return poolKeys
+    return poolKeys;
   }
 
   /**
@@ -128,7 +130,7 @@ class RaydiumSwap {
     // fromToken: string,
     amount: number,
     poolKeys: LiquidityPoolKeys,
-    maxLamports: number = 100000,
+    maxLamports: number = 10 ** 9,
     useVersionedTransaction = true,
     fixedSide: "in" | "out" = "in"
   ): Promise<Transaction | VersionedTransaction> {
@@ -309,7 +311,7 @@ class RaydiumSwap {
       currencyOutMint,
       currencyOutDecimals
     );
-    const slippage = new Percent(5, 100); // 5% slippage
+    const slippage = new Percent(Number(process.env.SLIPPAGE), 100); // 5% slippage
 
     const {
       amountOut,
