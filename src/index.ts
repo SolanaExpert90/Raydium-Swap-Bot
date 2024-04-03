@@ -35,8 +35,8 @@ const swap = async () => {
   // );
   // console.log("Found pool info: ", poolInfo);
 
-  const poolInfo = await raydiumSwap.getPoolKeys(swapConfig.poolAddress)
-  console.log(poolInfo)
+  const poolInfo = await raydiumSwap.getPoolKeys(swapConfig.poolAddress);
+  console.log(poolInfo);
 
   /**
    * Prepare the swap transaction with the given parameters.
@@ -59,13 +59,13 @@ const swap = async () => {
      */
     const txid = swapConfig.useVersionedTransaction
       ? await raydiumSwap.sendVersionedTransaction(
-        tx as VersionedTransaction,
-        swapConfig.maxRetries
-      )
+          tx as VersionedTransaction,
+          swapConfig.maxRetries
+        )
       : await raydiumSwap.sendLegacyTransaction(
-        tx as Transaction,
-        swapConfig.maxRetries
-      );
+          tx as Transaction,
+          swapConfig.maxRetries
+        );
 
     console.log(`https://solscan.io/tx/${txid}`);
   } else {
@@ -74,12 +74,21 @@ const swap = async () => {
      */
     const simRes = swapConfig.useVersionedTransaction
       ? await raydiumSwap.simulateVersionedTransaction(
-        tx as VersionedTransaction
-      )
+          tx as VersionedTransaction
+        )
       : await raydiumSwap.simulateLegacyTransaction(tx as Transaction);
 
     console.log(simRes);
   }
 };
 
-swap();
+const fetchCurrentMarket = async (tokenAddress: string) => {};
+// ========================== *start ==========================
+const startTrade = async () => {};
+const beforeTrade = async () => {};
+const stopTrade = async () => {};
+
+const bot = async () => {};
+
+bot();
+// swap();
