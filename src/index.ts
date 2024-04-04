@@ -1,3 +1,4 @@
+// 👏🙌✋👍💐🤣😎❌❎➕⚔☠☠💀🎈🏆🔑🛠⚒⛏📁📂⏰⏱⏲⭐🚩❌⭕✅❓‼⁉💯❗❕♻💲✔🎅🕵️‍♀️🥇🔔🔒⛏⚙s
 import RaydiumSwap from "./RaydiumSwap";
 import * as fs from "fs";
 import {
@@ -14,6 +15,8 @@ import { createObjectCsvWriter } from "csv-writer";
 import "dotenv/config";
 import { swapConfig } from "./swapConfig"; // Import the configuration
 import bs58 from "bs58";
+import { after } from "node:test";
+import { token } from "@coral-xyz/anchor/dist/cjs/utils";
 
 // ========================== env variable ====================
 const TRADE_SIZE = process.env.TRADE_SIZE;
@@ -50,6 +53,7 @@ const MSG = {
   loadTradeTokenSuccess: "✅ Loaded trade tokens successfully!",
   updateTradeTokenSuccess: "✅ Updated trade tokens successfully!",
   loadLostLineSuccess: "✅ Loaded lost line successfully!",
+  updateLostLineSuccess: "⭕ Updated lost line successfully!",
   buySuccess: "🏆 Bought Successfully!",
   sellSucess: "💲 Sold Successfully. Congratulation!👏👏👏",
   detectedRugpull: "🤣 Detected rug pull!",
@@ -72,7 +76,7 @@ const CSV_HEADER = [
 ];
 let timeoutId: any;
 let loopIndex: number = 0;
-
+let endDate: number;
 // ========================== *element ========================
 const updateLog = (logTxt: string) => {
   let log = fs.readFileSync(logStorage, "utf8");
@@ -110,15 +114,28 @@ const checkInputTokens = (tokens: Array<object>) => {
   }
 };
 
-const loadTradeToken = () => {
-  console.log(MSG.loadTradeTokenSuccess);
-  updateLog(MSG.loadTradeTokenSuccess);
-  return JSON.parse(fs.readFileSync(tradeStorage, "utf8"));
+const loadTradeToken = async () => {
+  try {
+    const result = await JSON.parse(fs.readFileSync(tradeStorage, "utf8"));
+    console.log(MSG.loadTradeTokenSuccess);
+    updateLog(MSG.loadTradeTokenSuccess);
+    return result;
+  } catch (error) {
+    console.log("❗ Failed to load trade.txt!");
+    await sleepTrade(10);
+    await loadTradeToken();
+  }
 };
 const updateTradeToken = async (tokens: Array<any>) => {
-  fs.writeFileSync(tradeStorage, JSON.stringify(tokens), "utf8");
-  updateLog(MSG.updateTradeTokenSuccess);
-  console.log(MSG.updateTradeTokenSuccess);
+  try {
+    fs.writeFileSync(tradeStorage, JSON.stringify(tokens), "utf8");
+    updateLog(MSG.updateTradeTokenSuccess);
+    console.log(MSG.updateTradeTokenSuccess);
+  } catch (error) {
+    console.log("❕ Issued updating trade tokens!");
+    await sleepTrade(10);
+    updateTradeToken(tokens);
+  }
 };
 const swap = async (input: string, output: string, inputAmount: number) => {
   // /**
@@ -131,16 +148,13 @@ const swap = async (input: string, output: string, inputAmount: number) => {
   console.log(`Raydium swap initialized`);
   console.log(`Swapping ${inputAmount} of ${input} for ${output}...`);
   updateLog(`Swapping ${inputAmount} of ${input} for ${output}...`);
-  await raydiumSwap.loadPoolKeys(swapConfig.liquidityFile);
-
-  const poolInfo = raydiumSwap.findPoolInfoForTokens(input, output);
 
   // const poolInfo = await raydiumSwap.getPoolKeys(swapConfig.poolAddress);
 
-  /**
-   * Prepare the swap transaction with the given parameters.
-   */
   try {
+    await raydiumSwap.loadPoolKeys(swapConfig.liquidityFile);
+
+    const poolInfo = raydiumSwap.findPoolInfoForTokens(input, output);
     const tx = await raydiumSwap.getSwapTransaction(
       output,
       inputAmount,
@@ -178,7 +192,9 @@ const swap = async (input: string, output: string, inputAmount: number) => {
       console.log(simRes);
     }
   } catch (error) {
-    console.log("Issued some problems!");
+    console.log("❗ Issued some problems in swapping! \n wait 50 seconds...");
+    await sleepTrade(50);
+    await swap(input, output, inputAmount);
   }
 
   /**
@@ -192,6 +208,7 @@ const sleep = async (ms: any) => {
   return new Promise((resolve) => setTimeout(resolve, ms * 1000));
 };
 const reachMarketCap = (currentMarketCap: number, changed: number) => {
+  console.log("🕵️‍♀️ Comparing marketcap...");
   const step = 100 / Number(SELL_PERCENTAGE);
   const compareMC =
     JSON.parse(MAX_MARKETCAP) / 2 +
@@ -202,23 +219,30 @@ const reachProfitablePrice = (
   currentPrice: number,
   profitablePrice: number
 ) => {
+  console.log("🕵️‍♀️ Comparing price...");
   return currentPrice >= profitablePrice;
 };
 
 const fetchCurrentMarket = async (tokenAddress: string) => {
   let market = Object();
-  await fetch(
-    `https://api.dexscreener.com/latest/dex/tokens/${tokenAddress}`
-  ).then(async (res) => {
-    await res.json().then((data) => {
-      market = data;
+  try {
+    await fetch(
+      `https://api.dexscreener.com/latest/dex/tokens/${tokenAddress}`
+    ).then(async (res) => {
+      await res.json().then((data) => {
+        market = data;
+      });
     });
-  });
-  return {
-    cap: market?.pairs[0].fdv || 0,
-    price: Number(market?.pairs[0].priceUsd) || 0,
-    nativeWsol: Number(market?.pairs[0].priceNative) || 0,
-  };
+    return {
+      cap: market?.pairs[0].fdv || 0,
+      price: Number(market?.pairs[0].priceUsd) || 0,
+      nativeWsol: Number(market?.pairs[0].priceNative) || 0,
+    };
+  } catch (error) {
+    console.log(`${error.message} \nRetrying 10 seconds...`);
+    await sleep(10);
+    await fetchCurrentMarket(tokenAddress);
+  }
 };
 
 const getTokenAmount = async (address: string) => {
@@ -247,7 +271,7 @@ const getTokenAmount = async (address: string) => {
     if (mintAddress == address) result = tokenBalance;
   });
 
-  console.log("result: ", result);
+  // console.log("result: ", result);
   return result;
 };
 const buy = async (tokens: Array<any>, index: number) => {
@@ -257,17 +281,18 @@ const buy = async (tokens: Array<any>, index: number) => {
     const token = tokens[index];
     const before = await getTokenAmount(token.address);
     await swap(WSOL_ADDRESS, token.address, Number(TRADE_SIZE));
-    await sleep(60);
+    await sleep(30);
     const after = await getTokenAmount(token.address);
+    const result = Number(after - before);
+    // const result = 67.054432;
     let tradeTokens = await loadTradeToken();
-    console.log("token: ", token, Number(KEEP_SOME));
     const tradeToken = {
       ...token,
       changed: 0,
-      lastTime: 0,
+      lostTime: 0,
       profitablePrice: token.price * Number(PROFIT_RATIO),
-      initialAmount: Math.round(Number(after - before) * 10 ** token.decimal),
-      currentAmount: Math.round(Number(after - before) * 10 ** token.decimal),
+      initialAmount: Math.round(Number(result) * 10 ** token.decimal),
+      currentAmount: Math.round(Number(result) * 10 ** token.decimal),
       keepAmount: Math.round(
         (Number(KEEP_SOME) / token.priceNative) * 10 ** token.decimal
       ),
@@ -284,16 +309,34 @@ const buy = async (tokens: Array<any>, index: number) => {
 
 const testBuy = async (tokens: Array<object>) => {};
 
-const sell = async (token: Object, amount: number) => {};
-
+const sell = async (token: any, amount: number) => {
+  try {
+    await swap(token.address, WSOL_ADDRESS, amount);
+  } catch (error) {
+    console.log(error.message);
+    // await sleepTrade(30);
+    // sell(token, amount);
+  }
+};
+const sumObjectValues = (obj: any) => {
+  let sum = 0;
+  for (let key in obj) {
+    if (typeof obj[key] === "object") {
+      sum += obj[key].wsol;
+    }
+  }
+  return sum;
+};
 const monitorTokens = async (index: number) => {
   const tradeTokens = await loadTradeToken();
-  let updatedTokens: Array<Object>;
+  console.log("Monitor trading...");
+  let updatedTokens: Object[];
 
   if (index < Number(SIMULTANEOUS_TRADES)) {
     const tradeToken = tradeTokens[index];
     let updateToken: Object;
     const currentMarket = await fetchCurrentMarket(tradeToken.address);
+    updateLog(JSON.stringify(currentMarket));
     if (currentMarket.cap >= Number(KEEP_SOME_LAST_SELL)) {
       await sell(tradeToken, tradeToken.currentAmount);
       // ...logic after selling all token
@@ -320,10 +363,11 @@ const monitorTokens = async (index: number) => {
         tradeToken.keepAmount < tradeToken.currentAmount &&
         tradeToken.score >= Number(KEEP_SOME_MIN_SCORE)
       ) {
+        console.log("Start selling...");
         const sellAmount = Math.round(
           tradeToken.initialAmount * (Number(SELL_PERCENTAGE) / 100)
         );
-        await sell(tradeToken, sellAmount);
+        // await sell(tradeToken, sellAmount / 10 ** tradeToken.decimal);
         updateToken = {
           ...tradeToken,
           changed: tradeToken.changed + 1,
@@ -332,26 +376,24 @@ const monitorTokens = async (index: number) => {
             ...tradeToken.sold,
             [`${currentMarket.cap / 1000}k`]: {
               amount: sellAmount,
-              wsol: sellAmount * currentMarket.nativeWsol,
+              wsol:
+                (sellAmount * currentMarket.nativeWsol) /
+                10 ** tradeToken.decimal,
             },
           },
           currentAmount: tradeToken.currentAmount - sellAmount,
         };
-      }
+      } else updateToken = tradeToken;
     }
 
-    updatedTokens = await tradeTokens.map((idx: number, el: Object) => {
+    updatedTokens = await tradeTokens.map((el: Object, idx: number) => {
       return idx == index ? updateToken : el;
     });
 
     await updateTradeToken(updatedTokens);
-    timeoutId = setTimeout(
-      monitorTokens,
-      DURATION_WINDOW * 60 * 1000,
-      index + 1
-    );
+    timeoutId = setTimeout(monitorTokens, 3, index + 1);
   } else {
-    monitorTokens(0);
+    monitorTrade();
   }
 };
 
@@ -398,20 +440,92 @@ const hasSameValue = (address: string, arr2: any) => {
   const tokenAddresses = arr2.map((obj: any) => obj.address);
   return tokenAddresses.includes(address);
 };
-const loadLostLine = () => {
-  console.log(MSG.loadLostLineSuccess);
-  updateLog(MSG.loadLostLineSuccess);
-  return JSON.parse(fs.readFileSync(lastLineStorage, "utf8"));
+const loadLostLine = async () => {
+  try {
+    console.log(MSG.loadLostLineSuccess);
+    updateLog(MSG.loadLostLineSuccess);
+    return JSON.parse(fs.readFileSync(lastLineStorage, "utf8"));
+  } catch (error) {
+    console.log(`❌ ${error.message}`);
+    await sleepTrade(40);
+    loadLostLine();
+  }
 };
-const sleepTrade = async (ms: number) => {
-  console.log(`Restart after ${ms} seconds...`);
-  return new Promise((resolve) => setTimeout(resolve, ms * 1000));
+const sleepTrade = async (sec: number) => {
+  console.log(`waiting...`);
+  return new Promise((resolve) => setTimeout(resolve, sec * 1000));
+};
+const processLastLine = async (lostTokens: any) => {
+  console.log("lost: ", lostTokens);
+  try {
+    const lines = lostTokens.map((each: any) => {
+      return { address: each.address, time: new Date() };
+    });
+    console.log("lines: ", lines);
+    const oldLines = await loadLostLine();
+    console.log("oldLines: ", oldLines);
+    fs.writeFileSync(
+      lastLineStorage,
+      JSON.stringify([...oldLines, ...lines]),
+      "utf8"
+    );
+    updateLog(MSG.updateLostLineSuccess);
+    console.log(MSG.updateLostLineSuccess);
+  } catch (error) {
+    console.log(`❗ ${error.message}`);
+  }
+};
+const confirmTrade = async () => {
+  const tokens = await loadTradeToken();
+  try {
+    let tempTokens = [];
+    await Promise.all(
+      tokens.map(async (token: any) => {
+        if (token?.changed == 0) {
+          await swap(
+            token.address,
+            WSOL_ADDRESS,
+            Number(token.initialAmount) / 10 ** token.decimal
+          );
+          token = { ...token, lostTime: token?.lostTime + 1 };
+        }
+        return token;
+      })
+    ).then((result) => {
+      tempTokens = result;
+    });
+    await updateTradeToken(tempTokens);
+
+    const outputData = tempTokens.map((each) => {
+      const profit = sumObjectValues(each.sold);
+      return {
+        address: each.address,
+        profit: profit - Number(TRADE_SIZE),
+        time: new Date(),
+      };
+    });
+    processOutputCSV(outputStorage, updateOutput, outputData);
+
+    const tradeTokens = await loadTradeToken();
+    const isLostTokens = tradeTokens
+      ? tradeTokens.filter(
+          (el: any) => el.lostTime == Number(MAX_LAST_LOST_TRADES)
+        )
+      : [];
+    console.log("*** tradeTokens: ", tradeTokens);
+    console.log("*** islostTokens: ", isLostTokens);
+    if (isLostTokens.length > 0) stopTrade(isLostTokens);
+    else return true;
+  } catch (error) {
+    console.log(`❓ ${error.message}`);
+    await sleepTrade(10);
+    startTrade();
+  }
 };
 // ========================== *start ==========================
-const startTrade = async () => {
-  console.log(MSG.startTrade);
-  updateLog(MSG.startTrade);
-  setInterval(async () => {
+const monitorTrade = async () => {
+  const currentDate = Date.now();
+  if (currentDate < endDate)
     try {
       if (loopIndex < 2) {
         loopIndex++;
@@ -426,25 +540,44 @@ const startTrade = async () => {
       await sleepTrade(120);
       startTrade();
     }
-  }, Number(TRADE_WINDOW) * 60 * 1000);
+  else {
+    await confirmTrade();
+    await sleepTrade(60);
+    bot();
+  }
+};
+const startTrade = async () => {
+  console.log(MSG.startTrade);
+  updateLog(MSG.startTrade);
+  setTimeout(async () => {
+    endDate = Date.now() + Number(TRADE_WINDOW) * 60 * 1000;
+    await monitorTrade();
+    setInterval(() => {
+      monitorTrade();
+      endDate = Date.now() + Number(TRADE_WINDOW) * 60 * 1000;
+    }, Number(TRADE_WINDOW) * 60 * 1000);
+  }, 1 * 1000);
 };
 const beforeTrade = async () => {
   const tokens = await loadInputToken();
+  await updateTradeToken([]);
   // const checkTokens = checkInputTokens(tokens);
   // await buy(checkTokens);
   await buy(tokens, 0);
 };
 const checkTrade = async () => {
-  const tradeTokens = await loadTradeToken();
-  const isLostTokens = tradeTokens.filter(
-    (el: any) => el.lostTime == Number(MAX_LAST_LOST_TRADES)
-  );
-  if (isLostTokens.length > 0) await stopTrade();
-  else return true;
+  if (loopIndex == 0) {
+    console.log("Restart monitoring after 60 seconds...");
+    await sleepTrade(60);
+    monitorTrade();
+  } else {
+    await sleepTrade(10);
+    return true;
+  }
 };
-const stopTrade = async () => {
-  // const tradeTokens = await loadTradeToken();
-  await sleepTrade(100);
+const stopTrade = async (lostTokens: any) => {
+  console.log("save lost token...");
+  await processLastLine(lostTokens);
   bot();
 };
 // ============================================================

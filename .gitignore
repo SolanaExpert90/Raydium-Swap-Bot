@@ -1,2 +1,5 @@
 /node_modules
 .env
+/src/storage
+/src/liquidity
+/src/market

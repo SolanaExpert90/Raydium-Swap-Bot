@@ -50,6 +50,14 @@ cd to your project root and run npm install. It will install all required node m
     npm install
 ```
 
+### Start bot
+
+cd to your project root and run npm install. It will install all required node modules
+
+```
+    npm run bot
+```
+
 ### Configuration
 
 Can change the configuration variable.
@@ -57,32 +65,37 @@ Can change the configuration variable.
 ```
     // This is template .env
     ============== Main options ====================
-    //sol/eth size per token
-    TRADE_SIZE = 0.005 # sol
+    RPC_URL=https://fittest-broken-bush.solana-mainnet.quiknode.pro/a57dd3d0fd839be918751678fe243f9fb742fd60
+    WALLET_PRIVATE_KEY=
+
+    # ============== Main options ====================#
+    # sol/eth size per token
+    TRADE_SIZE = 0.0001 # sol
     TEST_TRADE_SIZE = 0.00001 # test sol
-    TRADE_WINDOW = 40 # miuntes,  if it is set, MAX_MARKETCAP is ignored!
-    MAX_MARKETCAP = 50000000
-    52,039,655.82
-    2.2 ~ 3.6
-    PROFIT_RATIO = 1.1
-    simultaneous trades 1 ~ 5
-    SIMULTANEOUS_TRADES = 1 (1 ~ 5)
+    TRADE_WINDOW = 1440 # miuntes,  if it is set, MAX_MARKETCAP is ignored!
+    MAX_MARKETCAP = 4000000000
+
+    # 2.2 ~ 3.6
+    PROFIT_RATIO = 3.3
+    # simultaneous trades 1 ~ 5
+    SIMULTANEOUS_TRADES = 1
+    # Max last lost trades
     MAX_LAST_LOST_TRADES = 2
-    // sol or eth size to sell
+    # sol or eth size to sell
     SELL_PERCENTAGE = 20 # percentage(%)
     SLIPPAGE = 12 # slippage (%)
-    // Chain: SOL or ETH
+    # Chain: SOL or ETH
     CHAIN = 'SOL'
 
 
-    // keep solana or ether
-    KEEP_SOME = 0.001 # sol
-    KEEP_SOME_MIN_SCORE = 15 # min token score
+    # keep solana or ether
+    KEEP_SOME = 0.00001 # sol
+    KEEP_SOME_MIN_SCORE = 14 # min token score
     KEEP_SOME_LAST_SELL = 60000000
 
-    // WSOL address
+    # WSOL address
     WSOL_ADDRESS = So11111111111111111111111111111111111111112
-    WALLET_SECRET_KEY = 'input your wallet secret key'
+
 
 ```
 
@@ -92,15 +105,15 @@ This is template for input file for token
 
 ```
     {
-        "name":"Duko",
-        "symbol":"DUKO",
-        "address": "HLptm5e6rTgh4EKgDpYFrnRHbjpkMyVdEeREEa2G7rf9",
-        "decimal": 9,
-        "price": 0.004,
-        "ATH_price": 0.007,
+        "name": "No Dev",
+        "symbol": "Nodev",
+        "address": "HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX",
+        "decimal": 6,
+        "price": 0.00025222,
         "score": 15,
-        "created_date": 1711582899
-    },
+        "token_creation_date": 1712176213789,
+        "priceNative": 0.00003916
+    }
 ```
 
 ### output csv file
@@ -148,7 +161,23 @@ All the trade result is logged.
     ✅ Updated trade tokens successfully!
     ⏰---log time: Fri Mar 29 2024 05:02:01 GMT-0700 (Pacific Daylight Time)---⏰
     "😎 Current Market Status: \nDUKO: {\"price\":0.005007285144803157,\"cap\":48390183.26875848}"
-
+    ⭕ Updated lost line successfully!
+    ⏰---log time: Thu Apr 04 2024 06:45:36 GMT-0700 (Pacific Daylight Time)---⏰
+    ✅ Loaded input tokens successfully!
+    ⏰---log time: Thu Apr 04 2024 06:45:36 GMT-0700 (Pacific Daylight Time)---⏰
+    ✅ Updated trade tokens successfully!
+    ⏰---log time: Thu Apr 04 2024 06:45:36 GMT-0700 (Pacific Daylight Time)---⏰
+    Start to buy!
+    ⏰---log time: Thu Apr 04 2024 06:45:36 GMT-0700 (Pacific Daylight Time)---⏰
+    ✅ Loaded trade tokens successfully!
+    ⏰---log time: Thu Apr 04 2024 06:45:36 GMT-0700 (Pacific Daylight Time)---⏰
+    ✅ Updated trade tokens successfully!
+    ⏰---log time: Thu Apr 04 2024 06:45:36 GMT-0700 (Pacific Daylight Time)---⏰
+    😎 Start trade!
+    ⏰---log time: Thu Apr 04 2024 06:45:36 GMT-0700 (Pacific Daylight Time)---⏰
+    ✅ Loaded trade tokens successfully!
+    ⏰---log time: Thu Apr 04 2024 06:45:36 GMT-0700 (Pacific Daylight Time)---⏰
+    {"cap":102642,"price":0.0001026,"nativeWsol":5.427e-7}⏰---log time: Thu Apr 04 2024 06:45:36 GMT-0700 (Pacific Daylight Time)---⏰
     ................................................
 ```
 
@@ -172,6 +201,6 @@ saved type is like:
 
 ## Notice
 
-### The bot use coinmarketcap.com API for fetching current market trade including price and marketcap.
+### The bot use dexscreener API for fetching current market trade including price and marketcap for newly token.
 
-### The main function, swap is executed using Jupiter DEX.
+### The main function, swap is executed using Raydium
