@@ -92,4 +92,148 @@ Start to buy!⏰---log time: Wed Apr 03 2024 11:44:43 GMT-0700 (Pacific Daylight
 ✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 11:44:43 GMT-0700 (Pacific Daylight Time)---⏰ 
 ✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 12:45:34 GMT-0700 (Pacific Daylight Time)---⏰ 
 ✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 12:45:34 GMT-0700 (Pacific Daylight Time)---⏰ 
-Start to buy!
+Start to buy!⏰---log time: Wed Apr 03 2024 13:20:29 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 13:20:29 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 13:29:20 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 13:29:20 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 13:30:33 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 13:30:33 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 13:30:33 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 13:30:33 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Wed Apr 03 2024 13:30:33 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 13:30:33 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 13:30:33 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Wed Apr 03 2024 13:30:33 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 13:30:33 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 13:30:33 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Wed Apr 03 2024 13:30:33 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 13:30:33 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 13:30:33 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Wed Apr 03 2024 13:30:33 GMT-0700 (Pacific Daylight Time)---⏰ 
+😎 Start trade!⏰---log time: Wed Apr 03 2024 13:43:57 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 13:44:27 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 13:45:04 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 13:45:04 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 13:45:04 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 13:45:04 GMT-0700 (Pacific Daylight Time)---⏰ 
+https://solscan.io/tx/ULGS8TekjEis4W4hkBPnqrospZ5iVv8MeonFhzhr64dNRCZPZJMg4BoscLzQCfkfXV8cxstQ6SjXnRPvcoPfPov⏰---log time: Wed Apr 03 2024 13:45:04 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 13:45:04 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Wed Apr 03 2024 13:45:04 GMT-0700 (Pacific Daylight Time)---⏰ 
+😎 Start trade!⏰---log time: Wed Apr 03 2024 14:16:37 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 14:16:37 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 14:16:37 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 14:16:37 GMT-0700 (Pacific Daylight Time)---⏰ 
+https://solscan.io/tx/5FCf19swNXwQZ7Gqu4XWJkMP5etCBTjocaoRon3yQubMeSzmfpGQb1XyjkXjficuim4WwTszjrZnJPPKyh8xCUpB⏰---log time: Wed Apr 03 2024 14:16:37 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 14:16:37 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Wed Apr 03 2024 14:16:37 GMT-0700 (Pacific Daylight Time)---⏰ 
+😎 Start trade!⏰---log time: Wed Apr 03 2024 16:28:46 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 16:28:46 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 16:28:46 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 16:34:21 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 16:34:21 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 16:34:21 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 16:34:21 GMT-0700 (Pacific Daylight Time)---⏰ 
+https://solscan.io/tx/3Rdwy4LXGDejZ7fLsu3ZiU35YYJ7MuNUdbh8gPFexevP3t4DTARCR2hLEaHbR6HLPZJw8HCMDfkymLdshsHhcqX4⏰---log time: Wed Apr 03 2024 16:34:21 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 16:34:21 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Wed Apr 03 2024 16:37:02 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 16:37:02 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 16:37:02 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 16:37:02 GMT-0700 (Pacific Daylight Time)---⏰ 
+https://solscan.io/tx/2CQY43UGPRyH7ZWq7r8ppVjQ2Xr8351d8nrdGZC4oVGcbp6gfhXNkf8ycimh8MSHfzojP2aJADQexXQGNw8GY75d⏰---log time: Wed Apr 03 2024 16:37:02 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 16:37:02 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Wed Apr 03 2024 16:43:10 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 16:43:10 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 16:43:10 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 16:43:10 GMT-0700 (Pacific Daylight Time)---⏰ 
+https://solscan.io/tx/37t6wAWYcQQEW8R4eFtsTFsn4yjDwf3Ag3PWSF6n5TZwQGcj9vHRcWqrM8h2vPw7qWpdXEjYExMcFpt6ku38941d⏰---log time: Wed Apr 03 2024 16:43:10 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 16:43:10 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Wed Apr 03 2024 16:50:19 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 16:50:19 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 16:50:19 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 16:50:19 GMT-0700 (Pacific Daylight Time)---⏰ 
+https://solscan.io/tx/59MFNnq6GYaVWpCv2kZcBCSEVb4nQmDfmUJXBmJbmAh6RktFciMKUQG9z4hvuFKYk9QpG7RDfkHhPSXaxfz1b6LQ⏰---log time: Wed Apr 03 2024 16:50:19 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 16:50:19 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Wed Apr 03 2024 16:53:59 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 16:53:59 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 16:53:59 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 16:54:53 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 16:54:53 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 16:54:53 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 16:54:53 GMT-0700 (Pacific Daylight Time)---⏰ 
+https://solscan.io/tx/53SFozqrh9gxXZdYMdjLi1ctobgp3U7rvsJcCE4JmZ3HAZd33kdJRyZttZCEiFNnAHEMsKVcXWcbZ8kt9R3bjqL3⏰---log time: Wed Apr 03 2024 17:00:07 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 17:00:07 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 17:00:07 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 17:00:46 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 17:00:46 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 17:00:46 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 17:00:46 GMT-0700 (Pacific Daylight Time)---⏰ 
+https://solscan.io/tx/4gE8ADU163TAh2bsUjZmmmNwkvDLxrNaijaEJ4rA7RKyEqCycrSDRfPNt2fGr92JhxgEPfXR8Q9byJ8VZ3rmgT2s⏰---log time: Wed Apr 03 2024 17:00:46 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 17:00:46 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Wed Apr 03 2024 17:03:44 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 17:03:44 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 17:03:44 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 17:03:44 GMT-0700 (Pacific Daylight Time)---⏰ 
+https://solscan.io/tx/42DrG946UFd1848AHTvgeUWHcA8YMe7LELbB351o2S5ikcVDchTt7JUyx3u33LMmxVNWR8QWAYxWppwSTZrwh6K4⏰---log time: Wed Apr 03 2024 17:03:44 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 17:03:44 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Wed Apr 03 2024 17:08:47 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 17:08:47 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 17:08:47 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 17:08:47 GMT-0700 (Pacific Daylight Time)---⏰ 
+https://solscan.io/tx/5RFFRZ52wZdcCihQY8FvD37XE3EDm581WomoBavcD7qjSfQAMTErggyvcHmXWhRZd8sdkLA5Da8XzHPNeGaQ3SXP⏰---log time: Wed Apr 03 2024 17:08:47 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 17:08:47 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Wed Apr 03 2024 17:16:05 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 17:16:05 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 17:16:05 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 17:16:05 GMT-0700 (Pacific Daylight Time)---⏰ 
+https://solscan.io/tx/4LMUCWZhxrhd9s9XqVMPJwPmpGhG5fofM9XScw1AJK9ss5wTmxz79isBrSpztYbrp5yRfwvXGupFfL3tQex94VP4⏰---log time: Wed Apr 03 2024 17:16:05 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 17:16:05 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Wed Apr 03 2024 17:18:00 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 17:18:00 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 17:18:00 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 17:18:00 GMT-0700 (Pacific Daylight Time)---⏰ 
+https://solscan.io/tx/5X4hR9hWSRfEa5W3eRwqLnisA4VErWzU9ybzbMoDFmH7kTx9cjR3qQmu4RHzzszCMcw1PFgqbTMxQyUt8jfB6naQ⏰---log time: Wed Apr 03 2024 17:18:00 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 17:18:00 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Wed Apr 03 2024 17:27:42 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 17:27:42 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 17:27:42 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 17:27:42 GMT-0700 (Pacific Daylight Time)---⏰ 
+https://solscan.io/tx/iRwEcHNCPqDyqKK87cHyFtwTLRuk49wsKsxRidsXG4sZNiGyVgUwjmrnA8u2oXvFsf924cakLbUZyaZYZsokNtr⏰---log time: Wed Apr 03 2024 17:27:42 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 17:27:42 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Wed Apr 03 2024 17:27:42 GMT-0700 (Pacific Daylight Time)---⏰ 
+😎 Start trade!⏰---log time: Wed Apr 03 2024 17:32:26 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 17:32:26 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 17:32:26 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 17:32:26 GMT-0700 (Pacific Daylight Time)---⏰ 
+https://solscan.io/tx/2Y6U71CaVzTuJbzCwzgFuWzNb8Yn4qBaJnLyNeSuTPw4ynPMxESQdcakCgk61mtUGoxviRigzH6YpKRfbEew45Yz⏰---log time: Wed Apr 03 2024 17:32:26 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 17:32:26 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Wed Apr 03 2024 17:32:26 GMT-0700 (Pacific Daylight Time)---⏰ 
+😎 Start trade!⏰---log time: Wed Apr 03 2024 17:35:45 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 17:35:45 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 17:35:45 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 17:35:45 GMT-0700 (Pacific Daylight Time)---⏰ 
+https://solscan.io/tx/58nRYwQR7YMmav5Cevcm3DtEEmTgXjfCDvG3gCHtuivSFANe7BCH4CABxHYJE5JQ2iD7kzkc3aGpej5Hbno7uX2S⏰---log time: Wed Apr 03 2024 17:35:45 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 17:35:45 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Wed Apr 03 2024 17:35:45 GMT-0700 (Pacific Daylight Time)---⏰ 
+😎 Start trade!⏰---log time: Wed Apr 03 2024 17:52:50 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 17:52:50 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 17:52:50 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 17:52:50 GMT-0700 (Pacific Daylight Time)---⏰ 
+https://solscan.io/tx/PE4LFBxLEWCbGVwAUJxqiJ3hJWJQWMdy9ZjmX2ytjLkXykKrjEQs3GXer6zZiycn2C5JVVAUe4VriNnfoKoSbpS⏰---log time: Wed Apr 03 2024 17:52:50 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 17:52:50 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Wed Apr 03 2024 17:52:50 GMT-0700 (Pacific Daylight Time)---⏰ 
+😎 Start trade!⏰---log time: Wed Apr 03 2024 17:58:10 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 17:58:10 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 17:58:10 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 17:58:10 GMT-0700 (Pacific Daylight Time)---⏰ 
+https://solscan.io/tx/3s2KHibWB8C2nw6CWPsumszrgX4EqYqSvzTdZAmKZNGJCChCH8vj9AVy5e5eCSRwQQrZFtRVWk4yjsthEonZbXQh⏰---log time: Wed Apr 03 2024 17:58:10 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 18:01:18 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 18:01:18 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 18:01:18 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 18:01:18 GMT-0700 (Pacific Daylight Time)---⏰ 
+https://solscan.io/tx/2VkVyEVJYyCtyad7xF7tCKwKuqzU5R3w6DsAHqAgTFt4pwEfMUMDj5vHCqLnZJu6MqaEYxkw1yavTkY2AmhhbkWa⏰---log time: Wed Apr 03 2024 18:01:18 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!⏰---log time: Wed Apr 03 2024 19:40:08 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Wed Apr 03 2024 19:40:08 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Wed Apr 03 2024 19:40:08 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Wed Apr 03 2024 19:40:08 GMT-0700 (Pacific Daylight Time)---⏰ 
+https://solscan.io/tx/4Xd8xzg9oiTZAP9YjGZE5NeMdJztvW3PaNcGw4Wjt1UDN8QkmyjK74XP7YZ6YQSeCU6zczsJ1JodhV7bGA6bQyjA⏰---log time: Wed Apr 03 2024 19:40:08 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded trade tokens successfully!

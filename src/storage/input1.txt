@@ -1,0 +1,42 @@
+[
+  {
+    "name": "No Dev",
+    "symbol": "Nodev",
+    "address": "HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX",
+    "decimal": 6,
+    "price": 0.00025222,
+    "score": "10/20",
+    "token_creation_date": 1712176213789,
+    "priceNative": 0.00003916
+  },
+  {
+    "name": "Windows93",
+    "symbol": "WIN93",
+    "address": "oxuvcv2XqjZ7G4ZLEudYdf7Vcj4mZa1R3BgdnMXkL7G",
+    "decimal": 8,
+    "price": 0.000075847266,
+    "score": "11/20",
+    "token_creation_date": 1712176213789,
+    "priceNative": 000008916
+  },
+  {
+    "name": "Fire Blast",
+    "symbol": "TM38",
+    "address": "Fhd1DNEGX4xKarT9p4VDVzoUFBsAaujUNQd5JKygTepa",
+    "decimal": 6,
+    "price": 0.00023,
+    "score": "15/20",
+    "token_creation_date": 1712176213789,
+    "priceNative": 0.0000386
+  },
+  {
+    "name": "Warmhole",
+    "symbol": "W",
+    "address": "2cFTxa3hbcouR7hyVrZE28r97dbaiMaJy7NRJfUB3ThV",
+    "decimal": 6,
+    "price": 0.0015,
+    "score": "9/20",
+    "token_creation_date": 1712176213789,
+    "priceNative": 0.0001916
+  }
+]

@@ -1,12 +1,19 @@
 import RaydiumSwap from "./RaydiumSwap";
 import * as fs from "fs";
-import { Transaction, VersionedTransaction } from "@solana/web3.js";
+import {
+  Transaction,
+  VersionedTransaction,
+  Keypair,
+  GetProgramAccountsFilter,
+  Connection,
+} from "@solana/web3.js";
+import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import * as path from "path";
 import csv from "csv-parser";
 import { createObjectCsvWriter } from "csv-writer";
 import "dotenv/config";
 import { swapConfig } from "./swapConfig"; // Import the configuration
-import { token } from "@coral-xyz/anchor/dist/cjs/utils";
+import bs58 from "bs58";
 
 // ========================== env variable ====================
 const TRADE_SIZE = process.env.TRADE_SIZE;
@@ -15,7 +22,7 @@ const WSOL_ADDRESS = process.env.WSOL_ADDRESS;
 const MAX_MARKETCAP = process.env.MAX_MARKETCAP;
 const TRADE_WINDOW = process.env.TRADE_WINDOW;
 const PROFIT_RATIO = process.env.PROFIT_RATIO;
-const WALLET_SECRET_KEY = process.env.WALLET_SECRET_KEY;
+const WALLET_SECRET_KEY = process.env.WALLET_PRIVATE_KEY;
 const MAX_LAST_LOST_TRADES = process.env.MAX_LAST_LOST_TRADES;
 const SELL_PERCENTAGE = process.env.SELL_PERCENTAGE;
 const SIMULTANEOUS_TRADES = process.env.SIMULTANEOUS_TRADES;
@@ -27,15 +34,17 @@ const KEEP_SOME_LAST_SELL = process.env.KEEP_SOME_LAST_SELL;
 
 // ========================== storage =========================
 const rootDir = path.resolve(__dirname);
-console.log(rootDir);
+
 const inputTokenStorage = `${rootDir}/storage/input.txt`;
 const tradeStorage = `${rootDir}/storage/trade.txt`;
 const logStorage = `${rootDir}/storage/log.txt`;
-const outputStorage = "./storage/output.csv";
+const outputStorage = `${rootDir}/storage/output.csv`;
 const lastLineStorage = `${rootDir}/storage/last_line.lock`;
 
 // ========================== local variable ==================
+const connection = new Connection(process.env.RPC_URL);
 const logTime = `log time: ${new Date()}`;
+const wallet = Keypair.fromSecretKey(bs58.decode(WALLET_SECRET_KEY));
 const MSG = {
   loadInputTokenSuccess: "✅ Loaded input tokens successfully!",
   loadTradeTokenSuccess: "✅ Loaded trade tokens successfully!",
@@ -53,6 +62,7 @@ const MSG = {
   waiting: "waiting...",
   notEnoughToken: "🚩 Less than target count for trade",
 };
+
 const DURATION_WINDOW = 1; // unit second
 const rugCheckTolerance = 0.00000001; // sol
 const CSV_HEADER = [
@@ -62,6 +72,7 @@ const CSV_HEADER = [
 ];
 let timeoutId: any;
 let loopIndex: number = 0;
+
 // ========================== *element ========================
 const updateLog = (logTxt: string) => {
   let log = fs.readFileSync(logStorage, "utf8");
@@ -119,77 +130,66 @@ const swap = async (input: string, output: string, inputAmount: number) => {
   );
   console.log(`Raydium swap initialized`);
   console.log(`Swapping ${inputAmount} of ${input} for ${output}...`);
-
-  // /**
-  //  * Load pool keys from the Raydium API to enable finding pool information.
-  //  */
+  updateLog(`Swapping ${inputAmount} of ${input} for ${output}...`);
   await raydiumSwap.loadPoolKeys(swapConfig.liquidityFile);
-  // console.log(`Loaded pool keys`);
 
-  // /**
-  //  * Find pool information for the given token pair.
-  //  */
   const poolInfo = raydiumSwap.findPoolInfoForTokens(input, output);
-  // console.log("Found pool info: ", poolInfo);
 
   // const poolInfo = await raydiumSwap.getPoolKeys(swapConfig.poolAddress);
-  // console.log(poolInfo);
 
   /**
    * Prepare the swap transaction with the given parameters.
    */
-  const tx = await raydiumSwap.getSwapTransaction(
-    output,
-    inputAmount,
-    poolInfo,
-    swapConfig.maxLamports,
-    swapConfig.useVersionedTransaction,
-    swapConfig.direction
-  );
+  try {
+    const tx = await raydiumSwap.getSwapTransaction(
+      output,
+      inputAmount,
+      poolInfo,
+      swapConfig.maxLamports,
+      swapConfig.useVersionedTransaction,
+      swapConfig.direction
+    );
+    if (swapConfig.executeSwap) {
+      /**
+       * Send the transaction to the network and log the transaction ID.
+       */
+      const txid = swapConfig.useVersionedTransaction
+        ? await raydiumSwap.sendVersionedTransaction(
+            tx as VersionedTransaction,
+            swapConfig.maxRetries
+          )
+        : await raydiumSwap.sendLegacyTransaction(
+            tx as Transaction,
+            swapConfig.maxRetries
+          );
+
+      console.log(`https://solscan.io/tx/${txid}`);
+      updateLog(`https://solscan.io/tx/${txid}`);
+    } else {
+      /**
+       * Simulate the transaction and log the result.
+       */
+      const simRes = swapConfig.useVersionedTransaction
+        ? await raydiumSwap.simulateVersionedTransaction(
+            tx as VersionedTransaction
+          )
+        : await raydiumSwap.simulateLegacyTransaction(tx as Transaction);
+
+      console.log(simRes);
+    }
+  } catch (error) {
+    console.log("Issued some problems!");
+  }
 
   /**
    * Depending on the configuration, execute or simulate the swap.
    */
-  if (swapConfig.executeSwap) {
-    /**
-     * Send the transaction to the network and log the transaction ID.
-     */
-    const txid = swapConfig.useVersionedTransaction
-      ? await raydiumSwap.sendVersionedTransaction(
-          tx as VersionedTransaction,
-          swapConfig.maxRetries
-        )
-      : await raydiumSwap.sendLegacyTransaction(
-          tx as Transaction,
-          swapConfig.maxRetries
-        );
-
-    console.log(`https://solscan.io/tx/${txid}`);
-    const { amountOut } = await raydiumSwap.calcAmountOut(
-      poolInfo,
-      inputAmount,
-      true
-    );
-    // console.log("swap: ", amountOut);
-    return amountOut;
-  } else {
-    /**
-     * Simulate the transaction and log the result.
-     */
-    const simRes = swapConfig.useVersionedTransaction
-      ? await raydiumSwap.simulateVersionedTransaction(
-          tx as VersionedTransaction
-        )
-      : await raydiumSwap.simulateLegacyTransaction(tx as Transaction);
-
-    console.log(simRes);
-  }
 };
 
 const sleep = async (ms: any) => {
-  console.log(`Retry after ${ms / 1000} seconds...`);
-  console.log(MSG.waiting);
-  return new Promise((resolve) => setTimeout(resolve, ms));
+  // console.log(`Retry after ${ms / 1000} seconds...`);
+  // console.log(MSG.waiting);
+  return new Promise((resolve) => setTimeout(resolve, ms * 1000));
 };
 const reachMarketCap = (currentMarketCap: number, changed: number) => {
   const step = 100 / Number(SELL_PERCENTAGE);
@@ -221,37 +221,59 @@ const fetchCurrentMarket = async (tokenAddress: string) => {
   };
 };
 
+const getTokenAmount = async (address: string) => {
+  const filters: GetProgramAccountsFilter[] = [
+    {
+      dataSize: 165, //size of account (bytes)
+    },
+    {
+      memcmp: {
+        offset: 32, //location of our query in the account (bytes)
+        bytes: wallet.publicKey.toString(), //our search criteria, a base58 encoded string
+      },
+    },
+  ];
+  const accounts = await connection.getParsedProgramAccounts(
+    TOKEN_PROGRAM_ID, //SPL Token Program, new PublicKey("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA")
+    { filters: filters }
+  );
+  let result: number;
+
+  accounts.map((account, i) => {
+    const parsedAccountInfo: any = account.account.data;
+    const mintAddress: string = parsedAccountInfo["parsed"]["info"]["mint"];
+    const tokenBalance: number =
+      parsedAccountInfo["parsed"]["info"]["tokenAmount"]["uiAmount"];
+    if (mintAddress == address) result = tokenBalance;
+  });
+
+  console.log("result: ", result);
+  return result;
+};
 const buy = async (tokens: Array<any>, index: number) => {
   if (index < tokens.length) {
     console.log(MSG.startToBuy);
     updateLog(MSG.startToBuy);
     const token = tokens[index];
-    const result = await swap(WSOL_ADDRESS, token.address, Number(TRADE_SIZE));
+    const before = await getTokenAmount(token.address);
+    await swap(WSOL_ADDRESS, token.address, Number(TRADE_SIZE));
+    await sleep(60);
+    const after = await getTokenAmount(token.address);
     let tradeTokens = await loadTradeToken();
+    console.log("token: ", token, Number(KEEP_SOME));
     const tradeToken = {
-      ...tokens[index],
+      ...token,
       changed: 0,
       lastTime: 0,
-      profitablePrice: tokens[index].price * Number(PROFIT_RATIO),
-      initialAmount: Number(result) * 10 ** tokens[index].decimal,
-      currentAmount: Number(result) * 10 ** tokens[index].decimal,
-      keepAmount: Math.round(Number(KEEP_SOME) / tokens[index].priceNative),
+      profitablePrice: token.price * Number(PROFIT_RATIO),
+      initialAmount: Math.round(Number(after - before) * 10 ** token.decimal),
+      currentAmount: Math.round(Number(after - before) * 10 ** token.decimal),
+      keepAmount: Math.round(
+        (Number(KEEP_SOME) / token.priceNative) * 10 ** token.decimal
+      ),
       sold: {},
     };
-    // const tradeToken = tokens.map((idx: number, el: any) => {
-    //   return idx == index
-    //     ? {
-    //         ...el,
-    //         changed: 0,
-    //         lastTime: 0,
-    //         profitablePrice: el.price * Number(PROFIT_RATIO),
-    //         initialAmount: Number(result) * 10 ** el.decimal,
-    //         currentAmount: Number(result) * 10 ** el.decimal,
-    //         keepAmount: Math.round(Number(KEEP_SOME) / el.priceNative),
-    //         sold: {},
-    //       }
-    //     : el;
-    // });
+
     await updateTradeToken([...tradeTokens, tradeToken]);
     index += 1;
     return buy(tokens, index);
@@ -382,8 +404,8 @@ const loadLostLine = () => {
   return JSON.parse(fs.readFileSync(lastLineStorage, "utf8"));
 };
 const sleepTrade = async (ms: number) => {
-  console.log(`Restart after ${ms / 1000} seconds...`);
-  return new Promise((resolve) => setTimeout(resolve, ms * 60 * 1000));
+  console.log(`Restart after ${ms} seconds...`);
+  return new Promise((resolve) => setTimeout(resolve, ms * 1000));
 };
 // ========================== *start ==========================
 const startTrade = async () => {
@@ -401,7 +423,7 @@ const startTrade = async () => {
       }
     } catch (error) {
       console.log("Issued some problems!");
-      await sleep(120);
+      await sleepTrade(120);
       startTrade();
     }
   }, Number(TRADE_WINDOW) * 60 * 1000);
@@ -433,4 +455,3 @@ const bot = async () => {
 };
 
 bot();
-// swap();
