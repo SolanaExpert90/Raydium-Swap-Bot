@@ -1479,4 +1479,146 @@ Start to buy!⏰---log time: Thu Apr 04 2024 06:56:49 GMT-0700 (Pacific Daylight
 ✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 06:56:49 GMT-0700 (Pacific Daylight Time)---⏰ 
 ✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 06:56:49 GMT-0700 (Pacific Daylight Time)---⏰ 
 Start to buy!⏰---log time: Thu Apr 04 2024 06:56:49 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Thu Apr 04 2024 07:01:25 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:01:25 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:01:25 GMT-0700 (Pacific Daylight Time)---⏰ 
+🚩 Less than target count for trade⏰---log time: Thu Apr 04 2024 07:04:18 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:04:18 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:04:18 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:05:34 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:05:34 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:05:34 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:05:34 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:17:24 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:17:24 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:17:24 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:17:24 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:18:38 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:18:38 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:18:38 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:21:05 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:21:05 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:21:05 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:21:34 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:21:34 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:21:34 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:21:48 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:21:48 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:21:48 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:22:49 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:22:49 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:22:49 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:22:49 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Thu Apr 04 2024 07:22:49 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Thu Apr 04 2024 07:26:36 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:26:36 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:26:36 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:26:36 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Thu Apr 04 2024 07:26:36 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Thu Apr 04 2024 07:28:30 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:28:30 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:28:30 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:28:30 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Thu Apr 04 2024 07:28:30 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Thu Apr 04 2024 07:30:05 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:30:05 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:30:05 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:30:05 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Thu Apr 04 2024 07:30:54 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:30:54 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:30:54 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:30:54 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Thu Apr 04 2024 07:30:54 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Thu Apr 04 2024 07:31:44 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:31:44 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:31:44 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:31:44 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Thu Apr 04 2024 07:31:44 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Thu Apr 04 2024 07:32:33 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:32:33 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:32:33 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:32:33 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Thu Apr 04 2024 07:33:13 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:33:13 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:33:13 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:33:13 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Thu Apr 04 2024 07:35:28 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:35:28 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:35:28 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:35:28 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Thu Apr 04 2024 07:35:49 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:35:49 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:35:49 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:35:49 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Thu Apr 04 2024 07:51:52 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:51:52 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:51:52 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 07:51:52 GMT-0700 (Pacific Daylight Time)---⏰ 
+😎 Start trade!⏰---log time: Thu Apr 04 2024 07:53:30 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:53:30 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:54:15 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:54:15 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:55:41 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:55:41 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:56:34 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:56:34 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:56:53 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:56:53 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:57:19 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:57:19 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 07:58:59 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 07:58:59 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 08:15:36 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 08:15:36 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 08:15:36 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 08:15:36 GMT-0700 (Pacific Daylight Time)---⏰ 
+😎 Start trade!⏰---log time: Thu Apr 04 2024 08:16:56 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 08:16:56 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 08:16:56 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 08:16:56 GMT-0700 (Pacific Daylight Time)---⏰ 
+😎 Start trade!⏰---log time: Thu Apr 04 2024 08:16:56 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Thu Apr 04 2024 08:16:56 GMT-0700 (Pacific Daylight Time)---⏰ 
+Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...⏰---log time: Thu Apr 04 2024 08:17:32 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 08:17:32 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 08:17:32 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 08:17:32 GMT-0700 (Pacific Daylight Time)---⏰ 
+😎 Start trade!⏰---log time: Thu Apr 04 2024 08:18:27 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 08:18:27 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 08:18:27 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 08:18:27 GMT-0700 (Pacific Daylight Time)---⏰ 
+😎 Start trade!⏰---log time: Thu Apr 04 2024 08:22:39 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 08:22:39 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 08:22:39 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 08:22:39 GMT-0700 (Pacific Daylight Time)---⏰ 
+😎 Start trade!⏰---log time: Thu Apr 04 2024 08:25:50 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 08:25:50 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 08:25:50 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 08:25:50 GMT-0700 (Pacific Daylight Time)---⏰ 
+😎 Start trade!⏰---log time: Thu Apr 04 2024 08:26:15 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 08:26:15 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 08:26:15 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 08:26:15 GMT-0700 (Pacific Daylight Time)---⏰ 
+😎 Start trade!⏰---log time: Thu Apr 04 2024 08:28:35 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 08:28:35 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 08:28:35 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 08:28:35 GMT-0700 (Pacific Daylight Time)---⏰ 
+😎 Start trade!⏰---log time: Thu Apr 04 2024 08:28:50 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 08:28:50 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 08:28:50 GMT-0700 (Pacific Daylight Time)---⏰ 
+🚩 Less than target count for trade⏰---log time: Thu Apr 04 2024 08:37:22 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 08:37:22 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 08:37:22 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 08:37:22 GMT-0700 (Pacific Daylight Time)---⏰ 
+😎 Start trade!⏰---log time: Thu Apr 04 2024 08:44:25 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 08:44:25 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 08:45:15 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Thu Apr 04 2024 08:45:15 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Thu Apr 04 2024 08:45:15 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Thu Apr 04 2024 08:45:15 GMT-0700 (Pacific Daylight Time)---⏰ 
+😎 Start trade!⏰---log time: Fri Apr 05 2024 06:23:18 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded input tokens successfully!⏰---log time: Fri Apr 05 2024 06:23:18 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Updated trade tokens successfully!⏰---log time: Fri Apr 05 2024 06:23:18 GMT-0700 (Pacific Daylight Time)---⏰ 
+✅ Loaded lost line successfully!⏰---log time: Fri Apr 05 2024 06:23:18 GMT-0700 (Pacific Daylight Time)---⏰ 
+😎 Start trade!⏰---log time: Fri Apr 05 2024 06:23:18 GMT-0700 (Pacific Daylight Time)---⏰ 
+Start to buy!⏰---log time: Fri Apr 05 2024 06:23:18 GMT-0700 (Pacific Daylight Time)---⏰ 
 Swapping 0.0001 of So11111111111111111111111111111111111111112 for HDspTZ66xuhmRfeb6bQpmftcRsmQsNYcxVPXBZj8bmPX...
