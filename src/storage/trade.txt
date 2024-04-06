@@ -1,1 +1,1 @@
-[]
+[{"name":"analoS","symbol":"ANALOS","address":"7iT1GRYYhEop2nV1dyCwK2MGyLmPHq47WhPGSwiqcUg5","decimal":8,"price":0.00010163,"score":15,"token_creation_date":1712176213789,"priceNative":0.000003916,"changed":0,"lostTime":0,"profitablePrice":0.00033537899999999996,"initialAmount":0,"currentAmount":0,"keepAmount":255362615,"sold":{}}]

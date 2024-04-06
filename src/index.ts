@@ -15,21 +15,20 @@ import { createObjectCsvWriter } from "csv-writer";
 import "dotenv/config";
 import { swapConfig } from "./swapConfig"; // Import the configuration
 import bs58 from "bs58";
-import { after } from "node:test";
 import { token } from "@coral-xyz/anchor/dist/cjs/utils";
 
 // ========================== env variable ====================
 const TRADE_SIZE = process.env.TRADE_SIZE;
 const TEST_TRADE_SIZE = process.env.TEST_TRADE_SIZE;
 const WSOL_ADDRESS = process.env.WSOL_ADDRESS;
-const MAX_MARKETCAP = process.env.MAX_MARKETCAP;
+const BUY_MAX_CURRENT_MARKETCAP = process.env.BUY_MAX_CURRENT_MARKETCAP;
 const TRADE_WINDOW = process.env.TRADE_WINDOW;
 const PROFIT_RATIO = process.env.PROFIT_RATIO;
 const WALLET_SECRET_KEY = process.env.WALLET_PRIVATE_KEY;
 const MAX_LAST_LOST_TRADES = process.env.MAX_LAST_LOST_TRADES;
-const SELL_PERCENTAGE = process.env.SELL_PERCENTAGE;
+const PERCENTAGE = process.env.PERCENTAGE;
 const SIMULTANEOUS_TRADES = process.env.SIMULTANEOUS_TRADES;
-const SLIPPAGE = process.env.SLIPPAGE;
+const HONEYPOT = process.env.HONEYPOT;
 
 const KEEP_SOME = process.env.KEEP_SOME;
 const KEEP_SOME_MIN_SCORE = process.env.KEEP_SOME_MIN_SCORE;
@@ -94,7 +93,7 @@ const loadInputToken = () => {
 };
 const checkCondition = async (token: object) => {
   const lostResult = await isLosted(token);
-  console.log("condition: ", isOldToken(token), lostResult);
+  // console.log("condition: ", isOldToken(token), lostResult);
   if (isOldToken(token) || lostResult) return false;
   return true;
 };
@@ -231,10 +230,10 @@ const sleep = async (ms: any) => {
 };
 const reachMarketCap = (currentMarketCap: number, changed: number) => {
   console.log("🕵️‍♀️ Comparing marketcap...");
-  const step = 100 / Number(SELL_PERCENTAGE);
+  const step = 100 / Number(PERCENTAGE);
   const compareMC =
-    JSON.parse(MAX_MARKETCAP) / 2 +
-    (JSON.parse(MAX_MARKETCAP) / 2) * ((changed + 1) / step);
+    JSON.parse(BUY_MAX_CURRENT_MARKETCAP) / 2 +
+    (JSON.parse(BUY_MAX_CURRENT_MARKETCAP) / 2) * ((changed + 1) / step);
   return currentMarketCap >= compareMC;
 };
 const reachProfitablePrice = (
@@ -267,7 +266,7 @@ const volumeChecked = async (tokenAddress: string) => {
   } else return true;
 };
 const holdersChecked = async (tokenAddress: string) => {
-  if (Number(holdersChecked)) {
+  if (Number(HOLDERS_SELL_CHECKED)) {
     let volume = Object();
     try {
       await fetch(
@@ -290,7 +289,12 @@ const holdersChecked = async (tokenAddress: string) => {
 const smartContractChecked = async () => {
   return true;
 };
-
+const honeypotChecked = async (price: number) => {
+  if (HONEYPOT) {
+    return Math.abs(price - rugCheckTolerance) <= rugCheckTolerance;
+    // return true;
+  } else return true;
+};
 const fetchCurrentMarket = async (tokenAddress: string) => {
   let market = Object();
   try {
@@ -375,7 +379,23 @@ const buy = async (tokens: Array<any>, index: number) => {
   }
 };
 
-const testBuy = async (tokens: Array<object>) => {};
+const testBuy = async (tokens: Array<any>, index: number) => {
+  try {
+    if (index < tokens.length) {
+      const token = tokens[index];
+      await swap(WSOL_ADDRESS, token.address, Number(TEST_TRADE_SIZE));
+      await sleep(20);
+      index++;
+      return testBuy(tokens, index);
+    } else {
+      return true;
+    }
+  } catch (error) {
+    console.log(`${error.message}`);
+    await sleepTrade(10);
+    return true;
+  }
+};
 
 const sell = async (token: any, amount: number) => {
   try {
@@ -427,19 +447,19 @@ const monitorTokens = async (index: number) => {
     } else {
       if (
         (reachMarketCap(currentMarket.cap, tradeToken.changed) ||
-          reachProfitablePrice(
+          (reachProfitablePrice(
             currentMarket.price,
             tradeToken.profitablePrice
-          ) ||
-          checkVolume ||
-          checkHolders ||
-          checkContract) &&
+          ) &&
+            checkVolume &&
+            checkHolders &&
+            checkContract)) &&
         tradeToken.keepAmount < tradeToken.currentAmount &&
         tradeToken.score >= Number(KEEP_SOME_MIN_SCORE)
       ) {
         console.log("Start selling...");
         const sellAmount = Math.round(
-          tradeToken.initialAmount * (Number(SELL_PERCENTAGE) / 100)
+          tradeToken.initialAmount * (Number(PERCENTAGE) / 100)
         );
         // await sell(tradeToken, sellAmount / 10 ** tradeToken.decimal);
         updateToken = {
@@ -638,12 +658,15 @@ const beforeTrade = async () => {
   const tokens = await loadInputToken();
   await updateTradeToken([]);
   const checkTokens = await checkInputTokens(tokens);
-  buy(checkTokens, 0);
+  console.log(`Test buying...`);
+
+  await sleepTrade(10);
+  await buy(checkTokens, 0);
   // await buy(tokens, 0);
 };
 const checkTrade = async () => {
   if (loopIndex == 0) {
-    console.log("Restart monitoring after 60 seconds...");
+    console.log("Restart monitoring...");
     await sleepTrade(60);
     monitorTrade();
   } else {
