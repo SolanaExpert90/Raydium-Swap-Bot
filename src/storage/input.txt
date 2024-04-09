@@ -8,5 +8,35 @@
     "score": 15,
     "token_creation_date": 1712176213789,
     "priceNative": 0.000003916
+  },
+  {
+    "name": "taprootwizards",
+    "symbol": "wizards",
+    "address": "G4Jpmar7kM9oq74WvFo5ZmEh64jabh2vSmNrbQQueTWu",
+    "decimal": 6,
+    "price": 0.000008411,
+    "score": 15,
+    "token_creation_date": 1712176213789,
+    "priceNative": 0.00000004640
+  },
+  {
+    "name": "For Sale by Owner RV",
+    "symbol": "FSRV",
+    "address": "HQ4zPt9tLkHkx9BqdyrCUXjQeFPMb5TpgrpNRuqZQFxz",
+    "decimal": 9,
+    "price": 0.000008411,
+    "score": 15,
+    "token_creation_date": 1712176213789,
+    "priceNative": 0.00000003074
+  },
+  {
+    "name": "Theory Of Retards",
+    "symbol": "THOR",
+    "address": "7AaafVsBMT2PHvtxmcMuTpfB3T2coDgcwkqaf1zrw7QH",
+    "decimal": 6,
+    "price": 0.0003134,
+    "score": 15,
+    "token_creation_date": 1712176213789,
+    "priceNative": 0.000001737
   }
 ]
