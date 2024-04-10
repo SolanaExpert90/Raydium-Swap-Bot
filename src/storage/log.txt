@@ -3483,4 +3483,39 @@ undefined⏰---log time: Mon Apr 08 2024 16:13:58 GMT-0700 (Pacific Daylight Tim
 ✅ Loaded trade tokens successfully!⏰---log time: Mon Apr 08 2024 16:13:58 GMT-0700 (Pacific Daylight Time)---⏰ 
 {"cap":8213,"price":0.000008215,"nativeWsol":4.566e-8}⏰---log time: Mon Apr 08 2024 16:13:58 GMT-0700 (Pacific Daylight Time)---⏰ 
 ✅ Updated trade tokens successfully!⏰---log time: Mon Apr 08 2024 16:13:58 GMT-0700 (Pacific Daylight Time)---⏰ 
-✅ Loaded trade tokens successfully!
+✅ Loaded trade tokens successfully!⏰---[2024-04-10]---⏰ 
+✅ Loaded input tokens successfully!⏰---[2024-04-10]---⏰ 
+✅ Updated trade tokens successfully!⏰---[2024-04-10]---⏰ 
+✅ Loaded lost line successfully!⏰---[2024-04-10]---⏰ 
+✅ Loaded lost line successfully!
+
+[2024-04-10 12:52:04]-✅ Loaded input tokens successfully!
+[2024-04-10 12:52:04]-✅ Updated trade tokens successfully!
+[2024-04-10 12:52:04]-Token in Lockfile detected; starting where we left off...
+[2024-04-10 12:52:04]-✅ Loaded lost line successfully!
+[2024-04-10 12:52:04]-Token in Lockfile detected; starting where we left off...
+[2024-04-10 12:52:04]-✅ Loaded lost line successfully!
+[2024-04-10 12:52:04]-Start to buy!
+[2024-04-10 12:52:04]-Swapping 0.001 of So11111111111111111111111111111111111111112 for 7iT1GRYYhEop2nV1dyCwK2MGyLmPHq47WhPGSwiqcUg5...
+[2024-04-10 12:53:43]-✅ Loaded input tokens successfully!
+[2024-04-10 12:53:43]-✅ Updated trade tokens successfully!
+[2024-04-10 12:53:43]-Token in Lockfile detected; starting where we left off...
+[2024-04-10 12:53:43]-✅ Loaded lost line successfully!
+[2024-04-10 12:53:43]-Token in Lockfile detected; starting where we left off...
+[2024-04-10 12:53:43]-✅ Loaded lost line successfully!
+[2024-04-10 12:53:43]-Start to buy!
+[2024-04-10 12:53:43]-Swapping 0.001 of So11111111111111111111111111111111111111112 for 7iT1GRYYhEop2nV1dyCwK2MGyLmPHq47WhPGSwiqcUg5...
+[2024-04-10 12:53:43]-https://solscan.io/tx/2EAZWb6Ks39aSwUf8Z9Y9gqeLFEFWecYMV32ZZR61wjDphtdvHHxLirtGhUPfUNdFiy7UWGT9gtUC83EJEkVtWGt
+[2024-04-10 12:53:43]-✅ Loaded trade tokens successfully!
+[2024-04-10 12:53:43]-Finished buying 0 of analoS from  0.001 sol
+[2024-04-10 12:53:43]-✅ Updated trade tokens successfully!
+[2024-04-10 12:53:43]-Start to buy!
+[2024-04-10 12:53:43]-Swapping 0.001 of So11111111111111111111111111111111111111112 for G4Jpmar7kM9oq74WvFo5ZmEh64jabh2vSmNrbQQueTWu...
+[2024-04-10 12:59:50]-✅ Loaded input tokens successfully!
+[2024-04-10 12:59:50]-✅ Updated trade tokens successfully!
+[2024-04-10 12:59:50]-Token in Lockfile detected; starting where we left off...
+[2024-04-10 12:59:50]-✅ Loaded lost line successfully!
+[2024-04-10 12:59:50]-Token in Lockfile detected; starting where we left off...
+[2024-04-10 12:59:50]-✅ Loaded lost line successfully!
+[2024-04-10 12:59:50]-Start to buy! - analoS
+[2024-04-10 12:59:50]-Swapping 0.001 of So11111111111111111111111111111111111111112 for 7iT1GRYYhEop2nV1dyCwK2MGyLmPHq47WhPGSwiqcUg5...
